@@ -1,0 +1,20 @@
+  .mainmenu{
+    position: relative;
+    top: 100px;
+  }
+  .footer{
+    top:180px;
+    text-align: center;
+  }
+  .error{
+    color: red;
+    text-align: center;
+  }
+
+  #rounded {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border-width: 1px;
+}

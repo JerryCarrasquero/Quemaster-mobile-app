@@ -1,0 +1,41 @@
+
+<ion-content padding>
+  <div class="mainmenu">
+    <form [formGroup]="loginForm" (Submit)="login()" >
+      <ion-grid >
+        <ion-row>
+          <ion-col offset-2>
+              <h1>Quemaster</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg" no-lines>
+              <ion-input type="username" formControlName="username" placeholder="Usuario"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg"  no-lines>
+              <ion-input type="password" formControlName="password" placeholder="Contraseña"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <button ion-button type="submit" color="danger" id="rounded" [disabled]="!loginForm.valid" (click)="login()">Log In</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <p *ngIf="erro==null" class="error">{{error}}</p>
+    </form>
+  </div>
+  <div>
+    <ion-footer>
+      <ion-toolbar>
+        <span color="grey">No tiene una cuenta? </span><span (click)="register()" ><b>  Registrese</b></span>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</ion-content>

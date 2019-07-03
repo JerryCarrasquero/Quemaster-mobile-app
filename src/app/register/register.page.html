@@ -1,0 +1,79 @@
+
+<ion-content padding>
+  <div class="mainmenu">
+    <form [formGroup]="RegisterForm" (Submit)="register()" >
+      <ion-grid>
+        <ion-row>
+          <ion-col offset-2>
+              <h1>Registrar</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg" no-lines>
+              <ion-input type="username" formControlName="username" placeholder="username"></ion-input>
+            </ion-item>
+          </ion-col>
+          <div class="error"  *ngIf="!RegisterForm.controls.username.valid && RegisterForm.controls.username.dirty" role="alert">
+              Leght must be betwen 8 and 15 and not use especial characters but "_" and "-"
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg"  no-lines>
+              <ion-input type="password" formControlName="password" placeholder="Password Input"></ion-input>
+            </ion-item>
+          </ion-col>
+          <div class="error"  *ngIf="!RegisterForm.controls.password.valid && RegisterForm.controls.password.dirty" role="alert">
+              Leght must be betwen 8 and 15, and not use especial characters
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg"  no-lines>
+              <ion-input type="password" formControlName="repassword" placeholder="Rewrite Password"></ion-input>
+            </ion-item>
+          </ion-col>
+          <div class="error">
+          <div *ngIf="!RegisterForm.controls.repassword.valid && RegisterForm.controls.repassword.dirty" >
+              Leght must be betwen 8 and 15, and not use especial characters<br>
+          </div>
+          <div *ngIf="RegisterForm.controls.repassword.errors?.MatchPassword && RegisterForm.controls.repassword.dirty" >
+              Password must Match
+          </div>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg"  no-lines>
+              <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col offset-1 col-10>
+            <ion-item id="rounded" class="inputg"  no-lines>
+              <ion-input type="name" formControlName="name" placeholder="Name"></ion-input>
+            </ion-item>
+          </ion-col>
+          <div class="error"  *ngIf="!RegisterForm.controls.email.valid && RegisterForm.controls.email.dirty" role="alert">
+            A valid email is required!
+          </div>
+        </ion-row>
+          <ion-row>
+          <ion-col offset-1 col-10>
+            <button ion-button type="submit" color="danger" id="rounded" [disabled]="!RegisterForm.valid" (click)="register()">Register</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <p *ngIf="erro==null" class="error">{{error}}</p>
+    </form>
+  </div>
+  <div>
+    <ion-footer>
+      <ion-toolbar>
+        <span color="grey">Ya tiene una cuenta? </span><span (click)="login()" ><b>Log in</b></span>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</ion-content>

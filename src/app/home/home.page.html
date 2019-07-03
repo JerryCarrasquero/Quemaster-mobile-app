@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <div slot="start" ></div>
+    <ion-title  (click)=loadcontent()>
+      Home 
+    </ion-title>
+    <ion-button color="danger" slot="end" (click)=finishsession()>
+      Logout 
+    </ion-button >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let place of places" color="dark">
+      <ion-item color="dark">
+        <div slot="start" ></div>
+          <ion-label >{{place.name}}</ion-label>
+          <div *ngIf="!place.channelid">
+            <ion-button slot="end" style="text-transform:none" color="danger" shape="round" (click)=ticketboot(place.name,place.id,place.existence) >
+              <p>Ir</p>
+            </ion-button>
+          </div>
+          <div *ngIf="place.channelid" >
+            <ion-button  color="danger" slot="end" style="text-transform:none" shape="round" (click)=ticketboot(place.name,place.id,place.existence) >
+              <p>Ir</p>
+            </ion-button>
+          </div>
+      </ion-item>
+    </ion-card>      
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "quemasterapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
